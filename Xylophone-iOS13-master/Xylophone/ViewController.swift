@@ -45,15 +45,15 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-    var player: AVAudioPlayer!
+    private var player: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    @IBAction func keyPressed(_ sender: UIButton) {
+    @IBAction private func keyPressed(_ sender: UIButton) {
         
         print("start")
         sender.alpha = 0.5
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func playSound(soundName: String) {
+    private func playSound(soundName: String) {
         let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
         player = try! AVAudioPlayer(contentsOf: url!)
         player.play()
